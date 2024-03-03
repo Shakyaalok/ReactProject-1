@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-const Form = () => {
+const Form = (props) => {
 
 
     const [name,setName] = useState('');
@@ -18,7 +18,13 @@ const Form = () => {
 
     const formSubmitHandler = (e)=>{
         e.preventDefault();
-        console.log(name,age);
+        const formData = {
+            name:name,
+            age:age
+        }
+
+        props.onGetDataFromForm(formData)
+
         setName('');
         setAge('');
     }

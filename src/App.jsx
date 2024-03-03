@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './App.css';
-import Form from './components/Form';
+import Details from './components/Details';
 
 const App = () => {
  
   return (
     <div>
-      <Form/>
+      <Details/>
     </div>
   );
 };
