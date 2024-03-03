@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import './Form.css'
 
 const Form = (props) => {
 
@@ -35,15 +36,17 @@ const Form = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div>
+      <div className='form_controls'>
+      <div className='form_control'>
         <label >Name</label>
         <input type="text"  value={name} onChange={nameHandler} />
       </div>
-      <div>
+      <div className='form_control'>
         <label >Age</label>
         <input type="number" value={age}  onChange={ageHandler}  />
       </div>
       <button type='submit'>Submit</button>
+      </div>
       </form>
   )
 }

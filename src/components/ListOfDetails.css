@@ -1,0 +1,21 @@
+/* ListOfDetails.css */
+
+.ListOfDetails {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(98, 173, 144);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+}
+
+.detail_id {
+    font-weight: bold;
+}
+
+.detail_name {
+    margin-top: 5px;
+}

@@ -1,11 +1,18 @@
 import React from 'react'
+import './Error.css'
 
 const Error = (props) => {
-  console.log(props.missingFields)
+
+  const closePopHandler = () =>{
+    props.onCloseError();
+  }
+ 
+
+
   return (
-   
-    <div>
-      <h1>{props.missingFields} is Required</h1>
+    <div className='error'>
+      <span className='close_pop_up' onClick={closePopHandler}>&times;</span>
+      <h3 className='error_description'>{props.missingFields} is Required</h3>
     </div>
   )
 }

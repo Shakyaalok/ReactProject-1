@@ -27,11 +27,16 @@ const Details = () => {
   };
 
 
+  const closeErrorHandler =()=>{
+    setError(false);
+  }
+
+
 
   return (
     <div>
       <Form onGetDataFromForm={GetDataFromFormHandler} />
-      {error && <Error  missingFields={missingFields}/>}
+      {error && <Error  missingFields={missingFields} onCloseError={closeErrorHandler} />}
       {details.map((itm) => (
         <ListOfDetails key={itm.id} id={itm.id} name={itm.name} age={itm.age} />
       

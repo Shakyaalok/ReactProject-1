@@ -1,12 +1,12 @@
 import React from 'react'
+import './ListOfDetails.css'
 
 const ListOfDetails = (props) => {
   return (
-    <div>
-         <h2>{props.id}</h2>
-      <h2>{props.name}</h2>
-      <h2>{props.age}</h2>
-     
+    <div className='ListOfDetails'>
+         <div className='detail_id'>{props.id}</div>
+      <div className='detail_name'>{props.name}</div>
+      <div className='detail_age'>{props.age}</div>
     </div>
   )
 }

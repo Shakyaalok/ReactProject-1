@@ -1,0 +1,24 @@
+.error {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+.close_pop_up {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: #721c24;
+    background: red;
+    padding: 0.2rem 0.2rem;
+    color: white;
+    border-radius: 5px;
+}
+
+.error_description {
+    margin-left: 20px;
+}
