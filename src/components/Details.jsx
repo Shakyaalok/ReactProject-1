@@ -1,41 +1,43 @@
-import React,{useState} from 'react'
-import Form from './Form'
-import ListOfDetails from './ListOfDetails'
+import React, { useState } from "react";
+import Form from "./Form";
+import ListOfDetails from "./ListOfDetails";
+import Error from "./Error";
 
 const Details = () => {
 
-    // let [details,setDetails] = useState([]);
-    // const GetDataFromFormHandler = (dataFromForm)=>{
-    //     setDetails((orevState)=>[...orevState,dataFromForm]);
-    // }
+  let [details, setDetails] = useState([]);
+  let [error, setError] = useState(false);
+  let [missingFields,setMissingFields] = useState([])
 
 
-    const [details,setDetails] = useState([
-        {name:'ALok', age:25},
-        {name:"amit",age:30}
-    ])
 
-    const GetDataFromFormHandler = (dataFromForm)=>{
-        let includesIdInDetails = {
-            ...dataFromForm,
-            id:Math.random().toString()
+  const GetDataFromFormHandler = (dataFromForm) => {
+    if (!dataFromForm.name || !dataFromForm.age) {
+      setMissingFields(Object.keys(dataFromForm).filter(key => !dataFromForm[key]));
+      setError(true);
+    } else {
+      let includesIdInDetails = {
+        ...dataFromForm,
+        id: Math.random().toString(),
+      };
 
-        }
-        setDetails((prevState)=>[...prevState,includesIdInDetails]);
-        console.log(includesIdInDetails)
+      setDetails((prevState) => [...prevState, includesIdInDetails]);
+      setError(false);
     }
+  };
+
 
 
   return (
     <div>
-        <Form onGetDataFromForm={GetDataFromFormHandler}/>
-         {
-         details.map((itm)=>(
-            <ListOfDetails id={itm.id} name={itm.name} age={itm.age}/>
-                             )
-          )}
+      <Form onGetDataFromForm={GetDataFromFormHandler} />
+      {error && <Error  missingFields={missingFields}/>}
+      {details.map((itm) => (
+        <ListOfDetails key={itm.id} id={itm.id} name={itm.name} age={itm.age} />
+      
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Details
+export default Details;
